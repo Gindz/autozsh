@@ -1,5 +1,9 @@
 # ~/.zshrc file for zsh interactive shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
+export PATH=$HOME/.local/bin:$PATH
+export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
 setopt autocd              # change directory just by typing its name
 #setopt correct            # auto correct mistakes
@@ -119,6 +123,15 @@ configure_prompt() {
 PROMPT_ALTERNATIVE=twoline
 NEWLINE_BEFORE_PROMPT=yes
 # STOP KALI CONFIG VARIABLES
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  docker
+  docker-compose
+)
+
+source $ZSH/oh-my-zsh.sh
 
 if [ "$color_prompt" = yes ]; then
     # override default virtualenv indicator in prompt
